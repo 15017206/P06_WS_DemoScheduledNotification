@@ -30,22 +30,16 @@ public class MainActivity extends AppCompatActivity {
 
                 //launch notification here
                 Calendar cal = Calendar.getInstance();
-                cal.add(Calendar.SECOND, 5);
+                cal.add(Calendar.SECOND, 2);
 
-                Intent intent = new Intent(MainActivity.this,
-                        ScheduledNotificationReceiver.class);
+                Intent intent = new Intent(MainActivity.this, ScheduledNotificationReceiver.class);
 
-                PendingIntent pendingIntent = PendingIntent.getBroadcast(
-                        MainActivity.this, reqCode,
-                        intent, PendingIntent.FLAG_CANCEL_CURRENT);
+                PendingIntent pendingIntent = PendingIntent.getBroadcast(MainActivity.this, reqCode, intent, PendingIntent.FLAG_CANCEL_CURRENT);
 
-                AlarmManager am = (AlarmManager)
-                        getSystemService(Activity.ALARM_SERVICE);
-                am.set(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(),
-                        pendingIntent);
+                AlarmManager am = (AlarmManager)getSystemService(Activity.ALARM_SERVICE);
+                am.set(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(),pendingIntent);
 
             }
         });
-
     }
 }

@@ -15,7 +15,7 @@ public class ScheduledNotificationReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         // TODO: This method is called when the BroadcastReceiver is receiving
         // an Intent broadcast.
-        Intent i = new Intent(context, MainActivity.class);
+        Intent i = new Intent(context, Main2Activity.class);
         PendingIntent pIntent = PendingIntent.getActivity(context, reqCode, i, PendingIntent.FLAG_CANCEL_CURRENT);
 
         // build notification
@@ -26,8 +26,7 @@ public class ScheduledNotificationReceiver extends BroadcastReceiver {
         builder.setContentIntent(pIntent);
         builder.setAutoCancel(true);
         Notification n = builder.build();
-        NotificationManager notificationManager = (NotificationManager)
-                context.getSystemService(Context.NOTIFICATION_SERVICE);
-        notificationManager.notify(123, n);
+        NotificationManager notificationManager = (NotificationManager)context.getSystemService(Context.NOTIFICATION_SERVICE);
+        notificationManager.notify(1, n);
     }
 }
